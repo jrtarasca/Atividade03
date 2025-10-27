@@ -14,4 +14,8 @@ export class ArmazenamentoService {
     const dados = localStorage.getItem(this.CHAVE_ARMAZENAMENTO);
     return dados ? JSON.parse(dados) : null;
   }
+
+  limparDadosFormulario(): void {
+    localStorage.removeItem(this.CHAVE_ARMAZENAMENTO);
+  }
 }

@@ -90,6 +90,11 @@ export class AgendaViagensComponent implements OnInit, OnDestroy {
     if (this.formularioViagem.valid) {
       console.log('Dados do formulário:', this.formularioViagem.value);
       alert('Reserva enviada com sucesso!');
+      
+      this.armazenamentoService.limparDadosFormulario();
+      this.formularioViagem.reset({
+        passageiros: 1
+      });
     } else {
       this.marcarTodosCamposComoTouchados();
     }
