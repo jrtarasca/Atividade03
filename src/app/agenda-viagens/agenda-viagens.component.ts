@@ -16,9 +16,9 @@ export class AgendaViagensComponent implements OnInit, OnDestroy {
   private inscricaoMudancasFormulario!: Subscription;
 
   destinos = [
-    'Paris',
-    'Nova York',
-    'Tóquio',
+    'Paris', 
+    'Nova York', 
+    'Tóquio', 
     'Rio de Janeiro'
   ];
 
@@ -46,12 +46,12 @@ export class AgendaViagensComponent implements OnInit, OnDestroy {
       dataIda: ['', Validators.required],
       dataVolta: ['', [Validators.required]],
       passageiros: [1, [
-        Validators.required,
-        Validators.min(1),
+        Validators.required, 
+        Validators.min(1), 
         Validators.max(5)
       ]],
       email: ['', [
-        Validators.required,
+        Validators.required, 
         Validators.email
       ]]
     }, { validators: this.validadorDatas });
@@ -60,16 +60,16 @@ export class AgendaViagensComponent implements OnInit, OnDestroy {
   private validadorDatas(control: AbstractControl): ValidationErrors | null {
     const dataIda = control.get('dataIda')?.value;
     const dataVolta = control.get('dataVolta')?.value;
-
+    
     if (dataIda && dataVolta) {
       const ida = new Date(dataIda);
       const volta = new Date(dataVolta);
-
+      
       if (volta <= ida) {
         return { dataInvalida: true };
       }
     }
-
+    
     return null;
   }
 
